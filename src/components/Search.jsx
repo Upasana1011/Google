@@ -21,9 +21,10 @@ export const Search = () => {
         axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
         .then((res)=>{
             console.log(res.data);
+             setData(res.data)
           // dispatch(getData(newData.data))
         })
-        setData(res.data)
+        
     },[]) 
 
     const ascSort=()=>{
