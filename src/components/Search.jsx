@@ -16,14 +16,14 @@ export const Search = () => {
   //  const dispatch = useDispatch();
 
 
-    useEffect(async()=>{
+    useEffect(()=>{
         console.log(qis);
-       const newData = await axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
-        // .then((res)=>{
-        //     console.log(res.data);
-         //   dispatch(getData(newData.data))
-        // })
-        setData(newData.data)
+        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
+        .then((res)=>{
+            console.log(res.data);
+          // dispatch(getData(newData.data))
+        })
+        setData(res.data)
     },[]) 
 
     const ascSort=()=>{
