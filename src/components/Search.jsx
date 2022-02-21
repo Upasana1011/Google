@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import "./styles.css";
 import { useDispatch } from 'react-redux';
-import { getData } from '../redux/action';
+//import { getData } from '../redux/action';
 
 export const Search = () => {
      const [data,setData] = useState([]);
