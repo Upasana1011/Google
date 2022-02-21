@@ -13,12 +13,12 @@ export const Search = () => {
 
     useEffect(()=>{
         console.log(queryis);
-        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
+        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
         .then((res)=>{
             console.log(res.data);
             setData(res.data)
         })
-    },[]) 
+    },[queryis]) 
 
     const ascSort=()=>{
         var newd= data.sort((a,b)=>a.title-b.title)
