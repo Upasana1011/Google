@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import "./styles.css";
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 //import { getData } from '../redux/action';
 
 export const Search = () => {
@@ -13,12 +13,12 @@ export const Search = () => {
     const {q}=useParams();
     const qis=q.substring(2,q.length);
 
-    const dispatch = useDispatch();
+  //  const dispatch = useDispatch();
 
 
     useEffect(async()=>{
         console.log(qis);
-       const newData = await axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${qis}`)
+       const newData = await axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
         // .then((res)=>{
         //     console.log(res.data);
          //   dispatch(getData(newData.data))
