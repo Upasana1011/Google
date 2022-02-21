@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import "./styles.css";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 export const Home = () => {
     const [text,setText]=useState("")
-    const [dt,setData]=useState([])
+    const [data,setData]=useState([])
     
     useEffect(()=>{
         axios.get("http://localhost:3000/google")
