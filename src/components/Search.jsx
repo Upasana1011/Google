@@ -9,11 +9,11 @@ import "./styles.css";
 export const Search = () => {
      const [data,setData] = useState([]);
     const {q}=useParams();
-    const qis=q.substring(2,q.length);
+    const queryis=q.substring(2,q.length);
 
     useEffect(()=>{
-        console.log(qis);
-        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${qis}`)
+        console.log(queryis);
+        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
         .then((res)=>{
             console.log(res.data);
             setData(res.data)
