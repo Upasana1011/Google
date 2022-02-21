@@ -3,3 +3,12 @@
     height:30px;
     border-radius: 10px;
 }
+#oneline{
+    display: flex;
+    gap: 10%;
+    margin-left: 35%;
+    font-weight: bold;
+}
+#search-result{
+    margin-top: 50px;
+}
