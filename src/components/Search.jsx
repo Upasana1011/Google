@@ -9,7 +9,7 @@ import "./styles.css";
 export const Search = () => {
      const [data,setData] = useState([]);
     const {q}=useParams();
-    const queryis=q.substring(2,q.length);
+    let queryis=q.substring(2,q.length);
 
     useEffect(()=>{
         console.log(queryis);
