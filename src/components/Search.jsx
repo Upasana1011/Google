@@ -45,7 +45,7 @@ export const Search = () => {
         var newdt=data.sort((a,b)=> b.title-a.title)
          setData(newdt);
          console.log("desc");
-    
+      }
      const numberSort=()=>{
         var newdt=data.sort((a,b)=> (a.creation_date-b.creation_date))
          setData(newdt);
