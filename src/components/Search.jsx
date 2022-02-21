@@ -11,14 +11,29 @@ export const Search = () => {
     const {q}=useParams();
     let queryis=q.substring(2,q.length);
 
-    useEffect(()=>{
-        console.log(queryis);
-        axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
-        .then((res)=>{
-            console.log(res.data);
-            setData(res.data)
-        })
-    },[data]) 
+//     useEffect(()=>{
+//         console.log(queryis);
+//         axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
+//         .then((res)=>{
+//             console.log(res.data);
+//             setData(res.data)
+//         })
+//     },"") 
+     
+     useEffect(()=>{
+       getData()
+   },[])
+   
+   function getData(){
+ 
+       axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
+       .then((res)=>{
+        console.log(res.data)
+         setData(res.data)
+       })
+
+   }
+
 
     const ascSort=()=>{
         var newd= data.sort((a,b)=>a.title-b.title)
@@ -30,7 +45,7 @@ export const Search = () => {
         var newdt=data.sort((a,b)=> b.title-a.title)
          setData(newdt);
          console.log("desc");
-     }
+    
      const numberSort=()=>{
         var newdt=data.sort((a,b)=> (a.creation_date-b.creation_date))
          setData(newdt);
