@@ -22,7 +22,7 @@ export const Search = () => {
      
      useEffect(()=>{
        getData()
-   },[])
+   },[data])
    
    function getData(){
  
