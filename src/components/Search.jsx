@@ -21,7 +21,7 @@ export const Search = () => {
        const newData = await axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${qis}`)
         // .then((res)=>{
         //     console.log(res.data);
-            dispatch(getData(newData.data))
+         //   dispatch(getData(newData.data))
         // })
         setData(newData.data)
     },[]) 
