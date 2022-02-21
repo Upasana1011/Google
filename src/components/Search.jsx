@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigation } from './Navigation';
 import axios from 'axios';
-import { useParams } from 'react-router';
+//import { useParams } from 'react-router';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import "./styles.css";
@@ -10,14 +10,14 @@ import "./styles.css";
 
 export const Search = () => {
      const [data,setData] = useState([]);
-    const {q}=useParams();
-    const qis=q.substring(2,q.length);
+   // const {q}=useParams();
+   // const qis=q.substring(2,q.length);
 
   //  const dispatch = useDispatch();
 
 
     useEffect(()=>{
-        console.log(qis);
+        //console.log(qis);
         axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=sk`)
         .then((res)=>{
             console.log(res.data);
