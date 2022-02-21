@@ -18,7 +18,7 @@ export const Search = () => {
             console.log(res.data);
             setData(res.data)
         })
-    },[queryis]) 
+    }) 
 
     const ascSort=()=>{
         var newd= data.sort((a,b)=>a.title-b.title)
