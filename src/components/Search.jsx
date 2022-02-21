@@ -5,35 +5,26 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import "./styles.css";
+import { useDispatch } from 'react-redux';
+import { getData } from '../redux/action';
 
 export const Search = () => {
      const [data,setData] = useState([]);
     const {q}=useParams();
-    let queryis=q.substring(2,q.length);
+    const qis=q.substring(2,q.length);
 
-//     useEffect(()=>{
-//         console.log(queryis);
-//         axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
-//         .then((res)=>{
-//             console.log(res.data);
-//             setData(res.data)
-//         })
-//     },"") 
-     
-     useEffect(()=>{
-       getData()
-   },[data])
-   
-   function getData(){
- 
-       axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${queryis}`)
-       .then((res)=>{
-        console.log(res.data)
-         setData(res.data)
-       })
+    const dispatch = useDispatch();
 
-   }
 
+    useEffect(async()=>{
+        console.log(qis);
+       const newData = await axios.get(`https://fast-reef-22226.herokuapp.com/data?title_like=${qis}`)
+        // .then((res)=>{
+        //     console.log(res.data);
+            dispatch(getData(newData.data))
+        // })
+        setData(newData.data)
+    },[]) 
 
     const ascSort=()=>{
         var newd= data.sort((a,b)=>a.title-b.title)
@@ -45,7 +36,7 @@ export const Search = () => {
         var newdt=data.sort((a,b)=> b.title-a.title)
          setData(newdt);
          console.log("desc");
-      }
+     }
      const numberSort=()=>{
         var newdt=data.sort((a,b)=> (a.creation_date-b.creation_date))
          setData(newdt);
@@ -87,7 +78,8 @@ export const Search = () => {
             
 
             <div id="search-result">
-            {data.map((item,value)=>{
+            { 
+            data.map((item,value)=>{
                 return (
                    <div id="detailed-result" key ={value} >
                        <div>{item.url}</div>
